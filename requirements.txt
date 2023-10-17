@@ -1,0 +1,12 @@
+dynaconf
+flask
+flask-graphql
+flask_jwt_extended
+flask-sqlalchemy
+graphene-sqlalchemy
+graphene_sqlalchemy_auto
+graphene-sqlalchemy-filter
+logger_tt
+psycopg2
+psycopg2-binary
+sqlalchemy

@@ -1,0 +1,735 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+input BooleanRange {
+  begin: Boolean!
+  end: Boolean!
+}
+
+input CompanyFilter {
+  company_id: Float
+  company_id_ne: Float
+  company_id_like: Float
+  company_id_ilike: Float
+  company_id_is_null: Boolean
+  company_id_in: [Float!]
+  company_id_not_in: [Float!]
+  company_id_lt: Float
+  company_id_lte: Float
+  company_id_gt: Float
+  company_id_gte: Float
+  company_id_range: FloatRange
+  company_id_contains: Float
+  company_id_contained_by: Float
+  company_id_overlap: Float
+  company_name: String
+  company_name_ne: String
+  company_name_like: String
+  company_name_ilike: String
+  company_name_is_null: Boolean
+  company_name_in: [String!]
+  company_name_not_in: [String!]
+  company_name_lt: String
+  company_name_lte: String
+  company_name_gt: String
+  company_name_gte: String
+  company_name_range: StringRange
+  company_name_contains: String
+  company_name_contained_by: String
+  company_name_overlap: String
+  and: [CompanyFilter!]
+  or: [CompanyFilter!]
+  not: CompanyFilter
+}
+
+interface DatabaseId {
+  db_id: Int
+}
+
+scalar DateTime
+
+input DateTimeRange {
+  begin: DateTime!
+  end: DateTime!
+}
+
+input DepartmentFilter {
+  department_id: Float
+  department_id_ne: Float
+  department_id_like: Float
+  department_id_ilike: Float
+  department_id_is_null: Boolean
+  department_id_in: [Float!]
+  department_id_not_in: [Float!]
+  department_id_lt: Float
+  department_id_lte: Float
+  department_id_gt: Float
+  department_id_gte: Float
+  department_id_range: FloatRange
+  department_id_contains: Float
+  department_id_contained_by: Float
+  department_id_overlap: Float
+  company_id: Float
+  company_id_ne: Float
+  company_id_like: Float
+  company_id_ilike: Float
+  company_id_is_null: Boolean
+  company_id_in: [Float!]
+  company_id_not_in: [Float!]
+  company_id_lt: Float
+  company_id_lte: Float
+  company_id_gt: Float
+  company_id_gte: Float
+  company_id_range: FloatRange
+  company_id_contains: Float
+  company_id_contained_by: Float
+  company_id_overlap: Float
+  department_name: String
+  department_name_ne: String
+  department_name_like: String
+  department_name_ilike: String
+  department_name_is_null: Boolean
+  department_name_in: [String!]
+  department_name_not_in: [String!]
+  department_name_lt: String
+  department_name_lte: String
+  department_name_gt: String
+  department_name_gte: String
+  department_name_range: StringRange
+  department_name_contains: String
+  department_name_contained_by: String
+  department_name_overlap: String
+  and: [DepartmentFilter!]
+  or: [DepartmentFilter!]
+  not: DepartmentFilter
+}
+
+input EmployeeFilter {
+  employee_id: Float
+  employee_id_ne: Float
+  employee_id_like: Float
+  employee_id_ilike: Float
+  employee_id_is_null: Boolean
+  employee_id_in: [Float!]
+  employee_id_not_in: [Float!]
+  employee_id_lt: Float
+  employee_id_lte: Float
+  employee_id_gt: Float
+  employee_id_gte: Float
+  employee_id_range: FloatRange
+  employee_id_contains: Float
+  employee_id_contained_by: Float
+  employee_id_overlap: Float
+  department_id: Float
+  department_id_ne: Float
+  department_id_like: Float
+  department_id_ilike: Float
+  department_id_is_null: Boolean
+  department_id_in: [Float!]
+  department_id_not_in: [Float!]
+  department_id_lt: Float
+  department_id_lte: Float
+  department_id_gt: Float
+  department_id_gte: Float
+  department_id_range: FloatRange
+  department_id_contains: Float
+  department_id_contained_by: Float
+  department_id_overlap: Float
+  employee_name: String
+  employee_name_ne: String
+  employee_name_like: String
+  employee_name_ilike: String
+  employee_name_is_null: Boolean
+  employee_name_in: [String!]
+  employee_name_not_in: [String!]
+  employee_name_lt: String
+  employee_name_lte: String
+  employee_name_gt: String
+  employee_name_gte: String
+  employee_name_range: StringRange
+  employee_name_contains: String
+  employee_name_contained_by: String
+  employee_name_overlap: String
+  employee_email: String
+  employee_email_ne: String
+  employee_email_like: String
+  employee_email_ilike: String
+  employee_email_is_null: Boolean
+  employee_email_in: [String!]
+  employee_email_not_in: [String!]
+  employee_email_lt: String
+  employee_email_lte: String
+  employee_email_gt: String
+  employee_email_gte: String
+  employee_email_range: StringRange
+  employee_email_contains: String
+  employee_email_contained_by: String
+  employee_email_overlap: String
+  employee_age: Int
+  employee_age_ne: Int
+  employee_age_like: Int
+  employee_age_ilike: Int
+  employee_age_is_null: Boolean
+  employee_age_in: [Int!]
+  employee_age_not_in: [Int!]
+  employee_age_lt: Int
+  employee_age_lte: Int
+  employee_age_gt: Int
+  employee_age_gte: Int
+  employee_age_range: IntRange
+  employee_age_contains: Int
+  employee_age_contained_by: Int
+  employee_age_overlap: Int
+  employee_post: String
+  employee_post_ne: String
+  employee_post_like: String
+  employee_post_ilike: String
+  employee_post_is_null: Boolean
+  employee_post_in: [String!]
+  employee_post_not_in: [String!]
+  employee_post_lt: String
+  employee_post_lte: String
+  employee_post_gt: String
+  employee_post_gte: String
+  employee_post_range: StringRange
+  employee_post_contains: String
+  employee_post_contained_by: String
+  employee_post_overlap: String
+  employee_basic: Int
+  employee_basic_ne: Int
+  employee_basic_like: Int
+  employee_basic_ilike: Int
+  employee_basic_is_null: Boolean
+  employee_basic_in: [Int!]
+  employee_basic_not_in: [Int!]
+  employee_basic_lt: Int
+  employee_basic_lte: Int
+  employee_basic_gt: Int
+  employee_basic_gte: Int
+  employee_basic_range: IntRange
+  employee_basic_contains: Int
+  employee_basic_contained_by: Int
+  employee_basic_overlap: Int
+  joining_date: DateTime
+  joining_date_ne: DateTime
+  joining_date_like: DateTime
+  joining_date_ilike: DateTime
+  joining_date_is_null: Boolean
+  joining_date_in: [DateTime!]
+  joining_date_not_in: [DateTime!]
+  joining_date_lt: DateTime
+  joining_date_lte: DateTime
+  joining_date_gt: DateTime
+  joining_date_gte: DateTime
+  joining_date_range: DateTimeRange
+  joining_date_contains: DateTime
+  joining_date_contained_by: DateTime
+  joining_date_overlap: DateTime
+  status: Boolean
+  status_ne: Boolean
+  status_like: Boolean
+  status_ilike: Boolean
+  status_is_null: Boolean
+  status_in: [Boolean!]
+  status_not_in: [Boolean!]
+  status_lt: Boolean
+  status_lte: Boolean
+  status_gt: Boolean
+  status_gte: Boolean
+  status_range: BooleanRange
+  status_contains: Boolean
+  status_contained_by: Boolean
+  status_overlap: Boolean
+  and: [EmployeeFilter!]
+  or: [EmployeeFilter!]
+  not: EmployeeFilter
+}
+
+input FloatRange {
+  begin: Float!
+  end: Float!
+}
+
+input IntRange {
+  begin: Int!
+  end: Int!
+}
+
+scalar JSONString
+
+type Mutation {
+  createemployee(input: employeeCreateMutationInput!): employeeCreateMutation
+  updateemployee(ids: [ID]!, input: employeeUpdateMutationInput!): employeeUpdateMutation
+  deleteemployee(ids: [ID]!): employeeDeleteMutation
+  createsales(input: salesCreateMutationInput!): salesCreateMutation
+  updatesales(ids: [ID]!, input: salesUpdateMutationInput!): salesUpdateMutation
+  deletesales(ids: [ID]!): salesDeleteMutation
+  createcompany(input: companyCreateMutationInput!): companyCreateMutation
+  updatecompany(ids: [ID]!, input: companyUpdateMutationInput!): companyUpdateMutation
+  deletecompany(ids: [ID]!): companyDeleteMutation
+  createdepartment(input: departmentCreateMutationInput!): departmentCreateMutation
+  updatedepartment(ids: [ID]!, input: departmentUpdateMutationInput!): departmentUpdateMutation
+  deletedepartment(ids: [ID]!): departmentDeleteMutation
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  node(id: ID!): Node
+  company(filters: CompanyFilter, page: Int, per_page: Int, sort: [companySortEnum] = [COMPANY_ID_ASC], before: String, after: String, first: Int, last: Int): companyConnection
+  department(filters: DepartmentFilter, page: Int, per_page: Int, sort: [departmentSortEnum] = [DEPARTMENT_ID_ASC], before: String, after: String, first: Int, last: Int): departmentConnection
+  employee(filters: EmployeeFilter, page: Int, per_page: Int, sort: [employeeSortEnum] = [EMPLOYEE_ID_ASC], before: String, after: String, first: Int, last: Int): employeeConnection
+  sales(filters: SalesFilter, page: Int, per_page: Int, sort: [salesSortEnum] = [SALES_ID_ASC], before: String, after: String, first: Int, last: Int): salesConnection
+}
+
+input SalesFilter {
+  sales_id: Float
+  sales_id_ne: Float
+  sales_id_like: Float
+  sales_id_ilike: Float
+  sales_id_is_null: Boolean
+  sales_id_in: [Float!]
+  sales_id_not_in: [Float!]
+  sales_id_lt: Float
+  sales_id_lte: Float
+  sales_id_gt: Float
+  sales_id_gte: Float
+  sales_id_range: FloatRange
+  sales_id_contains: Float
+  sales_id_contained_by: Float
+  sales_id_overlap: Float
+  product_name: String
+  product_name_ne: String
+  product_name_like: String
+  product_name_ilike: String
+  product_name_is_null: Boolean
+  product_name_in: [String!]
+  product_name_not_in: [String!]
+  product_name_lt: String
+  product_name_lte: String
+  product_name_gt: String
+  product_name_gte: String
+  product_name_range: StringRange
+  product_name_contains: String
+  product_name_contained_by: String
+  product_name_overlap: String
+  price: Float
+  price_ne: Float
+  price_like: Float
+  price_ilike: Float
+  price_is_null: Boolean
+  price_in: [Float!]
+  price_not_in: [Float!]
+  price_lt: Float
+  price_lte: Float
+  price_gt: Float
+  price_gte: Float
+  price_range: FloatRange
+  price_contains: Float
+  price_contained_by: Float
+  price_overlap: Float
+  customer_name: String
+  customer_name_ne: String
+  customer_name_like: String
+  customer_name_ilike: String
+  customer_name_is_null: Boolean
+  customer_name_in: [String!]
+  customer_name_not_in: [String!]
+  customer_name_lt: String
+  customer_name_lte: String
+  customer_name_gt: String
+  customer_name_gte: String
+  customer_name_range: StringRange
+  customer_name_contains: String
+  customer_name_contained_by: String
+  customer_name_overlap: String
+  sales_person_id: Float
+  sales_person_id_ne: Float
+  sales_person_id_like: Float
+  sales_person_id_ilike: Float
+  sales_person_id_is_null: Boolean
+  sales_person_id_in: [Float!]
+  sales_person_id_not_in: [Float!]
+  sales_person_id_lt: Float
+  sales_person_id_lte: Float
+  sales_person_id_gt: Float
+  sales_person_id_gte: Float
+  sales_person_id_range: FloatRange
+  sales_person_id_contains: Float
+  sales_person_id_contained_by: Float
+  sales_person_id_overlap: Float
+  sale_date: DateTime
+  sale_date_ne: DateTime
+  sale_date_like: DateTime
+  sale_date_ilike: DateTime
+  sale_date_is_null: Boolean
+  sale_date_in: [DateTime!]
+  sale_date_not_in: [DateTime!]
+  sale_date_lt: DateTime
+  sale_date_lte: DateTime
+  sale_date_gt: DateTime
+  sale_date_gte: DateTime
+  sale_date_range: DateTimeRange
+  sale_date_contains: DateTime
+  sale_date_contained_by: DateTime
+  sale_date_overlap: DateTime
+  and: [SalesFilter!]
+  or: [SalesFilter!]
+  not: SalesFilter
+}
+
+input StringRange {
+  begin: String!
+  end: String!
+}
+
+type company implements Node {
+  company_id: Float!
+  company_name: String!
+  id: ID!
+  pk: Int
+}
+
+type companyConnection {
+  pageInfo: PageInfo!
+  edges: [companyEdge]!
+  total_count: Int
+  edge_count: Int
+  custom(fields: [String] = [], table: [String] = [], innerJoin: [String] = [], leftJoin: [String] = [], where: [String] = [], group: [String] = [], having: [String] = [], sort: [String] = [], limit: [String] = [], offset: [String] = []): JSONString
+}
+
+type companyCreateMutation {
+  output: companyOutputType
+  ok: Boolean
+  message: String
+}
+
+input companyCreateMutationInput {
+  company_name: String!
+}
+
+type companyDeleteMutation {
+  output: companyOutputType
+  ok: Boolean
+  message: String
+}
+
+type companyEdge {
+  node: company
+  cursor: String!
+}
+
+type companyOutputType implements Node, DatabaseId {
+  company_id: Float!
+  company_name: String!
+  id: ID!
+  db_id: Int
+}
+
+enum companySortEnum {
+  COMPANY_ID_ASC
+  COMPANY_ID_DESC
+  COMPANY_NAME_ASC
+  COMPANY_NAME_DESC
+}
+
+type companyUpdateMutation {
+  output: companyOutputType
+  ok: Boolean
+  message: String
+}
+
+input companyUpdateMutationInput {
+  company_name: String!
+}
+
+type department implements Node {
+  department_id: Float!
+  company_id: Float!
+  department_name: String!
+  employee_collection(before: String, after: String, first: Int, last: Int): employeeOutputTypeConnection
+  id: ID!
+  pk: Int
+}
+
+type departmentConnection {
+  pageInfo: PageInfo!
+  edges: [departmentEdge]!
+  total_count: Int
+  edge_count: Int
+  custom(fields: [String] = [], table: [String] = [], innerJoin: [String] = [], leftJoin: [String] = [], where: [String] = [], group: [String] = [], having: [String] = [], sort: [String] = [], limit: [String] = [], offset: [String] = []): JSONString
+}
+
+type departmentCreateMutation {
+  output: departmentOutputType
+  ok: Boolean
+  message: String
+}
+
+input departmentCreateMutationInput {
+  company_id: Float!
+  department_name: String!
+}
+
+type departmentDeleteMutation {
+  output: departmentOutputType
+  ok: Boolean
+  message: String
+}
+
+type departmentEdge {
+  node: department
+  cursor: String!
+}
+
+type departmentOutputType implements Node, DatabaseId {
+  department_id: Float!
+  company_id: Float!
+  department_name: String!
+  employee_collection(before: String, after: String, first: Int, last: Int): employeeOutputTypeConnection
+  id: ID!
+  db_id: Int
+}
+
+enum departmentSortEnum {
+  DEPARTMENT_ID_ASC
+  DEPARTMENT_ID_DESC
+  COMPANY_ID_ASC
+  COMPANY_ID_DESC
+  DEPARTMENT_NAME_ASC
+  DEPARTMENT_NAME_DESC
+}
+
+type departmentUpdateMutation {
+  output: departmentOutputType
+  ok: Boolean
+  message: String
+}
+
+input departmentUpdateMutationInput {
+  company_id: Float!
+  department_name: String!
+}
+
+type employee implements Node {
+  employee_id: Float!
+  department_id: Float!
+  employee_name: String!
+  employee_email: String!
+  employee_age: Int!
+  employee_post: String!
+  employee_basic: Int!
+  joining_date: DateTime!
+  status: Boolean!
+  department: departmentOutputType
+  sales_collection(before: String, after: String, first: Int, last: Int): salesOutputTypeConnection
+  id: ID!
+  pk: Int
+}
+
+type employeeConnection {
+  pageInfo: PageInfo!
+  edges: [employeeEdge]!
+  total_count: Int
+  edge_count: Int
+  custom(fields: [String] = [], table: [String] = [], innerJoin: [String] = [], leftJoin: [String] = [], where: [String] = [], group: [String] = [], having: [String] = [], sort: [String] = [], limit: [String] = [], offset: [String] = []): JSONString
+}
+
+type employeeCreateMutation {
+  output: employeeOutputType
+  ok: Boolean
+  message: String
+}
+
+input employeeCreateMutationInput {
+  employee_name: String!
+  employee_email: String!
+  employee_age: Int!
+  employee_post: String!
+  employee_basic: Int!
+  joining_date: DateTime!
+  status: Boolean!
+  department_id: ID
+}
+
+type employeeDeleteMutation {
+  output: employeeOutputType
+  ok: Boolean
+  message: String
+}
+
+type employeeEdge {
+  node: employee
+  cursor: String!
+}
+
+type employeeOutputType implements Node, DatabaseId {
+  employee_id: Float!
+  department_id: Float!
+  employee_name: String!
+  employee_email: String!
+  employee_age: Int!
+  employee_post: String!
+  employee_basic: Int!
+  joining_date: DateTime!
+  status: Boolean!
+  department: departmentOutputType
+  sales_collection(before: String, after: String, first: Int, last: Int): salesOutputTypeConnection
+  id: ID!
+  db_id: Int
+}
+
+type employeeOutputTypeConnection {
+  pageInfo: PageInfo!
+  edges: [employeeOutputTypeEdge]!
+}
+
+type employeeOutputTypeEdge {
+  node: employeeOutputType
+  cursor: String!
+}
+
+enum employeeSortEnum {
+  EMPLOYEE_ID_ASC
+  EMPLOYEE_ID_DESC
+  DEPARTMENT_ID_ASC
+  DEPARTMENT_ID_DESC
+  EMPLOYEE_NAME_ASC
+  EMPLOYEE_NAME_DESC
+  EMPLOYEE_EMAIL_ASC
+  EMPLOYEE_EMAIL_DESC
+  EMPLOYEE_AGE_ASC
+  EMPLOYEE_AGE_DESC
+  EMPLOYEE_POST_ASC
+  EMPLOYEE_POST_DESC
+  EMPLOYEE_BASIC_ASC
+  EMPLOYEE_BASIC_DESC
+  JOINING_DATE_ASC
+  JOINING_DATE_DESC
+  STATUS_ASC
+  STATUS_DESC
+}
+
+type employeeUpdateMutation {
+  output: employeeOutputType
+  ok: Boolean
+  message: String
+}
+
+input employeeUpdateMutationInput {
+  employee_name: String!
+  employee_email: String!
+  employee_age: Int!
+  employee_post: String!
+  employee_basic: Int!
+  joining_date: DateTime!
+  status: Boolean!
+  department_id: ID
+}
+
+type sales implements Node {
+  sales_id: Float!
+  product_name: String!
+  price: Float!
+  customer_name: String!
+  sales_person_id: Float!
+  sale_date: DateTime!
+  employee: employeeOutputType
+  id: ID!
+  pk: Int
+}
+
+type salesConnection {
+  pageInfo: PageInfo!
+  edges: [salesEdge]!
+  total_count: Int
+  edge_count: Int
+  custom(fields: [String] = [], table: [String] = [], innerJoin: [String] = [], leftJoin: [String] = [], where: [String] = [], group: [String] = [], having: [String] = [], sort: [String] = [], limit: [String] = [], offset: [String] = []): JSONString
+}
+
+type salesCreateMutation {
+  output: salesOutputType
+  ok: Boolean
+  message: String
+}
+
+input salesCreateMutationInput {
+  product_name: String!
+  price: Float!
+  customer_name: String!
+  sale_date: DateTime!
+  sales_person_id: ID
+}
+
+type salesDeleteMutation {
+  output: salesOutputType
+  ok: Boolean
+  message: String
+}
+
+type salesEdge {
+  node: sales
+  cursor: String!
+}
+
+type salesOutputType implements Node, DatabaseId {
+  sales_id: Float!
+  product_name: String!
+  price: Float!
+  customer_name: String!
+  sales_person_id: Float!
+  sale_date: DateTime!
+  employee: employeeOutputType
+  id: ID!
+  db_id: Int
+}
+
+type salesOutputTypeConnection {
+  pageInfo: PageInfo!
+  edges: [salesOutputTypeEdge]!
+}
+
+type salesOutputTypeEdge {
+  node: salesOutputType
+  cursor: String!
+}
+
+enum salesSortEnum {
+  SALES_ID_ASC
+  SALES_ID_DESC
+  PRODUCT_NAME_ASC
+  PRODUCT_NAME_DESC
+  PRICE_ASC
+  PRICE_DESC
+  CUSTOMER_NAME_ASC
+  CUSTOMER_NAME_DESC
+  SALES_PERSON_ID_ASC
+  SALES_PERSON_ID_DESC
+  SALE_DATE_ASC
+  SALE_DATE_DESC
+}
+
+type salesUpdateMutation {
+  output: salesOutputType
+  ok: Boolean
+  message: String
+}
+
+input salesUpdateMutationInput {
+  product_name: String!
+  price: Float!
+  customer_name: String!
+  sale_date: DateTime!
+  sales_person_id: ID
+}
